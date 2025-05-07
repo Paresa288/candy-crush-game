@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const game = new Game(8, 1);
+  const game = new Game(1);
   game.start();
 
 

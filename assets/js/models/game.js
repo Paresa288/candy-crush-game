@@ -1,11 +1,10 @@
 class Game {
 
-  constructor(gridSize, lvl) {
-    this.grid = document.querySelector("#grid");
+  constructor(lvl) {
+    
     
     this.lvl = lvl;
-    this.gridSize = gridSize;
-    this.squares = [];
+    
     
     this.colorBeingDragged;
     this.colorBeingReplaced;
@@ -14,22 +13,8 @@ class Game {
   }
 
   start() {
-    this.createBoard();
-    this.move()
-  }
-
-  
-
-  createBoard() {
-    for(let i = 0; i < this.gridSize * this.gridSize; i++) {
-      const square = document.createElement("div");
-      square.setAttribute("draggable", true);
-      square.setAttribute("id", i);
-      let randomColor = Math.floor(Math.random() * candyColors.length);
-      square.style.backgroundImage = candyColors[randomColor];
-      this.grid.appendChild(square);
-      this.squares.push(square);
-    }
+    const board = new Board(8);
+    board.createBoard(); 
   }
 
   dragStart(square) {

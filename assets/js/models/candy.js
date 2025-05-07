@@ -5,9 +5,9 @@ class Candy {
     this.mode = mode;
   }
 
-  draw() {
-    
-
+  draw(square) {
+      let randomColor = Math.floor(Math.random() * candyColors.length);
+      square.style.backgroundImage = candyColors[randomColor];
   }
 
   move() {
