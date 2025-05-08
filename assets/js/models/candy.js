@@ -1,13 +1,19 @@
 class Candy {
-  constructor(color, candyId, mode) {
-    this.color = color;
-    this.candyId = candyId,
-    this.mode = mode;
+  constructor() {
+    
+    this.color; 
+    this.mode;
   }
 
-  draw(square) {
-      let randomColor = Math.floor(Math.random() * candyColors.length);
-      square.style.backgroundImage = candyColors[randomColor];
+  draw(tile) {
+    const randomNumber = Math.floor(Math.random() * candyColors.length);
+    tile.style.backgroundImage = candyColors[randomNumber].regular;
+    this.color = candyColors[randomNumber].color;
+    this.mode = candyModes[0];
+  }
+
+  leaveBlank(tile) {
+    tile.style.backgroundImage = blankSquare;
   }
 
   move() {

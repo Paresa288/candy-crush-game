@@ -9,6 +9,7 @@ body {
 #grid {
   display: flex;
   flex-wrap: wrap;
+  min-height: 639px;
   margin-left: 80px;
   margin-top: 50px;
   background-color: rgba(109, 127, 151, 0.5);
