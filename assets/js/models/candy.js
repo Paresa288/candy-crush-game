@@ -1,22 +1,40 @@
 class Candy {
-  constructor() {
-    
-    this.color; 
-    this.mode;
+  constructor(id) {
+    this.id = id;
+    this.index = Math.floor(Math.random() * candyColors.length)
+    this.color = candyColors[this.index].color;
+    this.isRemoved = false;
+    this.mode = "regular";
+    this.node;
   }
 
-  draw(tile) {
-    const randomNumber = Math.floor(Math.random() * candyColors.length);
-    tile.style.backgroundImage = candyColors[randomNumber].regular;
-    this.color = candyColors[randomNumber].color;
-    this.mode = candyModes[0];
+  toHTML() {
+    const candyNode = document.createElement("div");
+    this.node = candyNode
+    candyNode.setAttribute("id", this.id);
+    if (!this.isRemoved) {
+      candyNode.setAttribute("draggable", true);
+      candyNode.setAttribute("color", `${this.color}`);
+      candyNode.setAttribute("mode", "regular(0)");
+      candyNode.style.backgroundImage = candyColors[this.index][this.mode];
+    } else {
+      candyNode.style.backgroundImage = blankSquare;
+    }
+    return candyNode;  
   }
 
-  leaveBlank(tile) {
-    tile.style.backgroundImage = blankSquare;
+  select() {
+    this.node.classList.add('selected')
   }
 
-  move() {
-
+  getRow() {
+    return Math.floor(this.id / 9);
   }
+
+  getColumn() {
+    return this.id % 9;
+  }
+
 }
+
+  

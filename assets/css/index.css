@@ -7,11 +7,12 @@ body {
 }
 
 #grid {
+  align-self: center;
   display: flex;
   flex-wrap: wrap;
   min-height: 639px;
-  margin-left: 80px;
-  margin-top: 50px;
+  margin-left: 3%;
+  margin-top: 10%;
   background-color: rgba(109, 127, 151, 0.5);
   padding:5px;
   border-radius: 10px;
@@ -23,6 +24,20 @@ body {
   height: 71px;
   width: 71px;
   background-repeat: no-repeat;
+}
+
+#grid div.selected {
+  animation: jump-shaking 0.83s infinite;
+}
+
+@keyframes jump-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateY(-9px) }
+  35% { transform: translateY(-9px) rotate(17deg) }
+  55% { transform: translateY(-9px) rotate(-17deg) }
+  65% { transform: translateY(-9px) rotate(17deg) }
+  75% { transform: translateY(-9px) rotate(-17deg) }
+  100% { transform: translateY(0) rotate(0) }
 }
 
 h3 {
@@ -38,10 +53,9 @@ h1 {
  
  
 .score-board {
-  background-color: pink;
   border-radius: 10px;
-  margin-top: 200px;
-  margin-left: 350px;
+  margin-top: 20%;
+  margin-left: 30%;
   margin-bottom: 350px;
   min-width: 200px;
  
@@ -53,4 +67,76 @@ h1 {
   background-image: linear-gradient(#FFB6C1, #FFC0CB);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #fff;
   color: #85796b;
+}
+
+#gameOverOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+  z-index: 1000;
+}
+
+#gameOverScreen {
+  position: fixed;
+  top: 20%;
+  left: 28%;
+  width: 45%;
+  height: 65%;
+  padding: 40px;
+  border-radius: 20px;
+  background-image: linear-gradient(#FFB6C1, #FFC0CB);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+  z-index: 1000;
+}
+
+#gameOverScreen h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: rgb(255, 20, 147);
+}
+
+.final-score {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: #333;
+}
+.max-score {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 100px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  background-color: deeppink;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buttons button:hover {
+  background-color: rgb(255, 82, 174);
 }

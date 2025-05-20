@@ -45,3 +45,4 @@ const candyColors = [
 
 const candyModes = ["regular","strippedHorizontal","strippedVertical","wrapped",]
 const blankSquare = "url(assets/rsc/images/blank.png)"
+const candyPoints = 40;

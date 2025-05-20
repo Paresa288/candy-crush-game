@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const game = new Game(1);
+  const game = new Game();
   game.start();
-
-
 })
