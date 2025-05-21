@@ -90,10 +90,11 @@ class Board {
           this.clickedCandy = undefined;
         } else {
           this.clickedCandy = undefined;
-          this.checkLines();
+          this.setInterval();
+          /* this.checkLines();
           this.dropDown();
           this.draw();
-          this.checkFinishedGame();
+          this.checkFinishedGame(); */
         }
       }
     }
@@ -208,17 +209,37 @@ class Board {
     return isFinished;
   }
 
+  getBlankSquares () {
+    const blankSquares = this.candies.reduce((blankSquares, candy) => {
+      if (candy.isRemoved) {
+        blankSquares.push(candy);
+      }
+      return blankSquares;
+    }, []);
+
+    return blankSquares;
+  }
+
   setInterval() {
-    const gameLoop = window.setInterval(() => {
-      console.log("Interval Initialized");
-      this.checkLines();
-      this.dropDown();
-      this.draw();
-      if (this.checkFinishedGame()) {
+    let gameLoop;
+
+    if (!gameLoop) {
+      gameLoop = setInterval(() => {
+        console.log("Interval Initialized");
+        this.checkLines();
+        this.draw();
+        this.dropDown();
+        this.draw();
+        while (this.getBlankSquares().length > 0) {
+          this.dropDown();
+          this.draw();
+          this.checkLines();
+        };
         console.log("Interval Finished");
         this.checkFinishedGame();
         clearInterval(gameLoop);
-      }
-    }, 1000)
-  }
+      }, 100)
+    }
+
+    }
 }

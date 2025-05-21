@@ -9,6 +9,4 @@ class Game {
     this.board.draw();
     this.board.setInterval();
   }
-
-  
 }
