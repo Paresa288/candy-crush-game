@@ -9,22 +9,28 @@ class Candy {
   }
 
   toHTML() {
-    const candyNode = document.createElement("div");
-    this.node = candyNode
-    candyNode.setAttribute("id", this.id);
+    this.node = document.createElement("div");
+    this.node.setAttribute("id", this.id);
     if (!this.isRemoved) {
-      candyNode.setAttribute("draggable", true);
-      candyNode.setAttribute("color", `${this.color}`);
-      candyNode.setAttribute("mode", "regular(0)");
-      candyNode.style.backgroundImage = candyColors[this.index][this.mode];
+      this.node.setAttribute("draggable", true);
+      this.node.setAttribute("color", `${this.color}`);
+      this.node.setAttribute("mode", "regular(0)");
+      this.node.style.backgroundImage = candyColors[this.index][this.mode];
     } else {
-      candyNode.style.backgroundImage = blankSquare;
+      this.node.setAttribute("color", `${this.color}`);
+      this.node.style.backgroundImage = blankSquare;
     }
-    return candyNode;  
+    return this.node;  
   }
 
   select() {
-    this.node.classList.add('selected')
+    if (!this.isRemoved) {
+      if (!this.node.classList.contains("selected")) {
+        this.node.classList.add("selected");
+      } else {
+        this.node.classList.remove("selected");
+      }
+    }
   }
 
   getRow() {
