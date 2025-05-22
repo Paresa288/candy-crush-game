@@ -1,5 +1,5 @@
 body {
-  background: url("./assets/rsc/images/background.jpg") no-repeat center center fixed;
+  background: url("../rsc/images/background.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
