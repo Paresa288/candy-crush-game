@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 <body>
+   <div id="startOverlay">
+    <div id="startScreen">
+      <div class="logo-img">
+        <img src="/assets/rsc/images/Candy_Crush.svg" alt="candy-crush-logo">
+      </div>
+      <div class="buttons">
+        <button id="startBtn">Start</button>
+      </div>
+    </div>
+  </div>
   <div id="gameOverOverlay">
     <div id="gameOverScreen">
       <h1>Level Completed</h1>
@@ -14,7 +24,6 @@
       <div class="max-score">Max Score: <span id="maxScore"></span></div>
       <div class="buttons">
         <button id="retryBtn">Retry</button>
-        <button id="nextBtn">Next</button>
       </div>
     </div>
   </div>
@@ -30,5 +39,6 @@
 <script src="/assets/js/models/candy.js"></script>
 <script src="/assets/js/models/board.js"></script>
 <script src="/assets/js/models/game.js"></script>
+<script src="/assets/js/models/start-screen.js"></script>
 <script src="/assets/js/index.js"></script>
 </html>

@@ -16,6 +16,8 @@ class GameOverScreen {
   draw() {
     this.gameOverOverlayNode.style.visibility = "visible";
     this.gameOverScreenNode.style.visibility = "visible";
+    this.gameOverOverlayNode.style.opacity = "1";
+    this.gameOverScreenNode.style.opacity = "1";
   }
 
   setScore() {
@@ -35,5 +37,7 @@ class GameOverScreen {
   kill() {
     this.gameOverOverlayNode.style.visibility = "hidden";
     this.gameOverScreenNode.style.visibility = "hidden";
+    this.gameOverOverlayNode.style.opcaity = "0";
+    this.gameOverScreenNode.style.opacity = "0";
   }
 }

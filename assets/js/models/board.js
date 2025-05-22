@@ -86,16 +86,18 @@ class Board {
         this.swap(this.clickedCandy, candy);
         if (!this.checkLines()) {
           this.swap(candy, this.clickedCandy);
-          this.clickedCandy.select();
           this.clickedCandy = undefined;
         } else {
           this.clickedCandy = undefined;
-          this.setInterval();
-          /* this.checkLines();
+          /* this.setInterval(); */
+          this.checkLines();
           this.dropDown();
           this.draw();
-          this.checkFinishedGame(); */
+          this.checkFinishedGame();
         }
+      } else {
+        this.clickedCandy.select();
+        this.clickedCandy = undefined;
       }
     }
   }
@@ -146,7 +148,6 @@ class Board {
           const fifthCandy = reorganizedCandies[i + 4];
             
           if (!firstCandy.isRemoved && firstCandy.id + (1 * offset) === secondCandy?.id && firstCandy.id + (2 * offset) === thirdCandy?.id && firstCandy.id + (3 * offset) === fourthCandy?.id && firstCandy.id + (4 * offset) === fifthCandy?.id) {
-            console.log("COMBO OF 5",firstCandy, secondCandy, thirdCandy, fourthCandy, fifthCandy);
             firstCandy.isRemoved = true;
             secondCandy.isRemoved = true;
             thirdCandy.isRemoved = true;
@@ -156,7 +157,6 @@ class Board {
             this.score.addScore(5 * candyPoints);
             isCombo = true;
           } else if (!firstCandy.isRemoved && !isCombo && firstCandy.id + (1 * offset) === secondCandy?.id && firstCandy.id + (2 * offset) === thirdCandy?.id && firstCandy.id + (3 * offset) === fourthCandy?.id) {
-            console.log("COMBO OF 4",firstCandy, secondCandy, thirdCandy, fourthCandy)
             firstCandy.isRemoved = true;
             secondCandy.isRemoved = true;
             thirdCandy.isRemoved = true;
@@ -165,7 +165,6 @@ class Board {
             this.score.addScore(4 * candyPoints);
             isCombo = true;
           } else if (!firstCandy.isRemoved && !isCombo && firstCandy.id + (1 * offset) === secondCandy?.id && firstCandy.id + (2 * offset) === thirdCandy?.id) {
-            console.log("COMBO OF 3", firstCandy, secondCandy, thirdCandy)
             firstCandy.isRemoved = true;
             secondCandy.isRemoved = true;
             thirdCandy.isRemoved = true;
